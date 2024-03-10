@@ -78,7 +78,17 @@ def check():
         with open("pos_dict.json", 'w'):
             # Use json.dump() to write the dictionary to the file
                 a = json.dumps(pos_dict)
-
+        cur.execute('''
+        CREATE TABLE IF NOT EXISTS DETAILS (
+        id serial PRIMARY KEY ,
+        url varchar,
+        no_of_words INT,
+        no_of_sentences INT,
+        content varchar,
+        no_of_stopwords INT,
+        headlines varchar,
+        pos_tags varchar)''')
+        
         cur.execute(
             '''INSERT INTO DETAILS \
                 (url,no_of_words,no_of_sentences,content,no_of_stopwords,headlines,pos_tags) VALUES (%s,%s,%s,%s,%s,%s,%s)''',
@@ -86,6 +96,7 @@ def check():
         
         cur.execute('''SELECT url,no_of_sentences,no_of_words,no_of_stopwords,headlines,pos_tags,content  FROM DETAILS ORDER BY ID DESC LIMIT 1''')
         data = cur.fetchall()
+        
         conn.commit()   
         cur.close()
 
