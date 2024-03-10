@@ -11,7 +11,7 @@ import json
 app = Flask(__name__)
 
 # Making connection to database
-conn = psycopg2.connect(database="project1",user = 'postgres', password = 'Anshul24092004', host='localhost')
+conn = psycopg2.connect(database="project1_26vj",user = 'anshul', password = 'DtvIFzPpxtqJUGsgITPtuUta8tISe9wt', host='dpg-cnmqi9ev3ddc73flad50-a', port=5432)
 
 @app.route("/",methods=['GET', 'POST'])
 def home():
