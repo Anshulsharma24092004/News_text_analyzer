@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Analysis Website</title>
+    <script src="{{ url_for('static', filename='main.js') }}" defer type="module"></script>
+</head>
+
+<body style="margin: 0; padding: 0; font-family: 'Arial', sans-serif; background: linear-gradient(to right, #EDE574 0%, #E1F5C4 51%, #EDE574 100%);">   
+
+    <!-- Sign In Button -->
+    <button style="position: absolute; top: 20px; right: 20px; margin: 10px; padding: 15px 25px; text-align: center; text-transform: uppercase; transition: 0.5s; background: green; color: white; box-shadow: 0 0 20px #eee; border-radius: 10px; display: block;"
+        onmouseover="this.style.backgroundPosition='right center'; this.style.color='#fff';"
+        onmouseout="this.style.backgroundPosition='left center'; this.style.color='white';" id="l">Sign In</button>
+
+    <!-- Text Analysis Section -->
+    <div style="margin: 100px auto; padding: 20px; text-align: center; background: #fff; box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); border-radius: 10px; width: 80%;">
+        <h1 style="color: #333;">Welcome to Text Analysis Website</h1>
+        <p style="color: #555; font-size: 18px;">
+            Explore the power of text analysis with our advanced tools. Gain valuable insights from your text data and enhance your decision-making process.
+        </p>
+        <p style="color: #555; font-size: 18px;">
+            Revolutionize your data clarity. Welcome to a world where messy news text becomes a seamless source of knowledge.
+        </p>
+
+        <!-- Form Section (Hidden) -->
+        <form action="/submit_url" method="post" style="display: none;">
+            <label for="url">Submit a URL:</label>
+            <input type="text" name="url" placeholder="Enter URL here" required>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <!-- Transparent Background for Analysis Results Section -->
+    <div style="margin: 20px auto; padding: 20px; text-align: center; background: rgba(255, 255, 255, 0.5); backdrop-filter: blur(10px); box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); border-radius: 10px; width: 80%;">
+        <h2 style="color: #333;">What this website does?</h2>
+        <p style="color: #555; font-size: 18px;">
+            Our advanced tools process the provided link and clean its data, extracting valuable insights like:
+        </p>
+        <ul style="list-style: none; padding: 0;">
+            <li style="color: #555;">Number of Sentences: <span id="sentences"></span></li>
+            <li style="color: #555;">Number of Words: <span id="words"></span></li>
+            <li style="color: #555;">POS Tags: <span id="pos-tags"></span></li>
+            <!-- Add more display elements for other relevant information -->
+        </ul>
+        <p style="color: #555; font-size: 18px;">
+            Discover the insights you need for informed decision-making.
+        </p>
+    </div>
+
+    <script>
+        // JavaScript logic to handle text analysis and update the resultSection with the results
+        document.addEventListener('DOMContentLoaded', function () {
+            const resultSection = document.getElementById('result-section');
+            // You can add your logic here to perform text analysis and update the resultSection with the results.
+
+            // For demonstration purposes, showing the resultSection (this part needs to be replaced with actual logic)
+            resultSection.style.display = 'block';
+        });
+    </script>
+</body>
+
+</html>

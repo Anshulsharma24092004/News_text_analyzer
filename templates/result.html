@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analysis Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background-image: linear-gradient(to right, #EDE574 0%, #E1F5C4 51%, #EDE574 100%);
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+            text-align: center;
+            padding-top: 50px;
+        }
+
+        .content {
+            background-color: transparent;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        p {
+            margin: 10px 0;
+            color: #555;
+        }
+
+        a {
+            display: block;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #3498db;
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            color: #2071a6;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="content">
+            <h1>Analysis Result</h1>
+            {% for i in data %}
+            <p><strong>URL:</strong> {{ i[0] }}</p>
+            <p><strong>Number of Sentences:</strong> {{ i[1] }}</p>
+            <p><strong>Number of Words:</strong> {{ i[2] }}</p>
+            <p><strong>Number of Stopwords:</strong> {{ i[3] }}</p>
+            <p><strong>Headlines:</strong> {{ i[4] }}</p>
+            <p><strong>POS Tags:</strong> {{ i[5] }}</p>
+            <p><strong>Content:</strong> {{ i[6] }}</p>
+            <p class="slogan">THANK YOU</p>
+            {% endfor %}
+            <a href="/index"> Back to Home Page</a>
+        </div>
+    </div>
+</body>
+
+</html>

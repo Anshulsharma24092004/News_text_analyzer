@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .content {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 400px;
+            margin: auto;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        form {
+            max-width: 300px;
+            margin: 20px auto;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+            border: 1px solid #28a745;
+            border-radius: 4px;
+            color: #333;
+        }
+
+        button {
+            background-color: #28a745;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+        .home-link {
+            text-decoration: none;
+            padding: 10px;
+            margin-bottom: 20px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .home-link:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <div><a class="home-link" href="/index">Home</a></div>
+            <h1> Let's Authenticate</h1>
+            <form action="/admin" method="post" onsubmit="return pass()">
+                <label for="password">Password:</label>
+                <input type="password" name="password" id="password-input" placeholder="Enter your password" required>
+                <button type="submit" name="submit">Submit</button>
+            </form>
+        </div>
+        <br><br>
+    </div>
+    <script>
+        function pass() {
+            var password = document.getElementById('password-input').value;
+            
+            // Add your server-side logic to check the password here
+            // For now, let's assume the password is incorrect
+            if (password !== '1234') {
+                alert("Password is wrong");
+                showWarning();
+                return false; // Prevent form submission
+            }
+
+            return true; // Allow form submission if password is correct
+        }
+    </script>
+</body>
+</html>
